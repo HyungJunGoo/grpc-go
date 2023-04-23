@@ -9,10 +9,15 @@ message CalculatorRequest {
     int32 val2 = 2;
 }
 
+message PrimeCalculatorRequest {
+    int32 num = 1;
+}
+
 message CalculatorResponse {
     int32 result = 1;
 }
 
 service CalculatorService {
     rpc Calculate (CalculatorRequest) returns (CalculatorResponse);
+    rpc CalculatePrimes (PrimeCalculatorRequest) returns (stream CalculatorResponse);
 }
